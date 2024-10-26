@@ -28,9 +28,9 @@ def export_to_json(employeeId, username, todoList):
             "task": todo.get('title'),
             "completed": todo.get('completed'),
             "username": username
-        }) 
+        })
     jsonData = {employeeId: taskList}
-    fileName = f"{employeeId}.json"    
+    fileName = f"{employeeId}.json"
     with open(fileName, mode='w') as json_file:
         json.dump(jsonData, json_file)
 
