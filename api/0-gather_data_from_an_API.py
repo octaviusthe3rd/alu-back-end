@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-"""
-Script that gets employee TODO list progress from JSONPlaceholder API
-"""
+''' A script that performs a ccheck on completed tasks by an employee
+'''
 import requests
 import sys
 
 
 def get_employee(employee_id):
-    """Fetches employee data from JSONPlaceholder API"""
+    """Fetches employee data from the API"""
     employee_data = "https://jsonplaceholder.typicode.com/users/"
     employee_request = requests.get(employee_data + str(employee_id))
     return employee_request.json()
 
 
 def get_todo(employee_id):
-    """Fetches TODO list data for an employee from JSONPlaceholder API"""
+    """Fetches TODO list data for an employee from the API"""
     todo_url = "https://jsonplaceholder.typicode.com/todos?userId="
     todo_request = requests.get(todo_url + str(employee_id))
     return todo_request.json()
@@ -50,4 +49,4 @@ if __name__ == "__main__":
               f"{todo_tasks(todo_result)}:")
         todo_titles(todo_result)
     except requests.RequestException as e:
-        print(f"Error making request: {e})
+        print(f"Error making request: {e}")
