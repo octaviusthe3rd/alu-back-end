@@ -23,7 +23,7 @@ def getTodo(employeeId):
 def export_to_csv(employeeId, username, todoList):
     """Exports TODO list data to CSV files
     """
-    fileName = f"employee {employeeId} data.csv"
+    fileName = f"{employeeId}.csv"
     with open(fileName, mode='w', newline='') as csv_file:
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for todo in todoList:
