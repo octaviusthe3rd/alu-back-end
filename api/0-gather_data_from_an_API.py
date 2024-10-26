@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-A script that uses JSONPlaceholder API to get information about employee TODO list
-progress
+Script that gets employee TODO list progress from JSONPlaceholder API
 """
 import requests
 import sys
@@ -35,7 +34,7 @@ def todo_titles(todo_result):
     """Prints the titles of completed TODO list items"""
     for todo in todo_result:
         if todo.get('completed'):
-            print(f"     {todo.get('title')}")
+            print(f"\t {todo.get('title')}")
 
 
 if __name__ == "__main__":
@@ -51,4 +50,4 @@ if __name__ == "__main__":
               f"{todo_tasks(todo_result)}:")
         todo_titles(todo_result)
     except requests.RequestException as e:
-        print(f"Error making request: {e}")
+        print(f"Error making request: {e})
