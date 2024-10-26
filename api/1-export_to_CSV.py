@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-'''The scripts tracks tasks completed by an Employee and writes tot the CSV file
-'''
+"""Script to export TODO list data to CSV format
+"""
 import csv
 import requests
 import sys
@@ -21,8 +21,7 @@ def getTodo(employeeId):
 
 
 def export_to_csv(employeeId, username, todoList):
-    """Exports TODO list data to CSV files
-    """
+    """Exports TODO list data to CSV files"""
     fileName = f"{employeeId}.csv"
     with open(fileName, mode='w', newline='') as csv_file:
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
@@ -39,14 +38,11 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Please provide an employee ID as argument")
         sys.exit(1)
-
     try:
         employeeId = sys.argv[1]
         todoResult = getTodo(employeeId)
         employeeResult = getEmployee(employeeId)
-        
         username = employeeResult.get('username')
         export_to_csv(employeeId, username, todoResult)
-        
     except requests.RequestException as e:
         print(f"Error making request: {e}")
