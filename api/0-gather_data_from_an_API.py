@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 """
-A script that uses JSONPlaceholder API to get information about employee TODO list progress
+A script that uses JSONPlaceholder API to get information about employee TODO list
+progress
 """
 import requests
 import sys
 
 
 def get_employee(employee_id):
-    """Fetches employee data from the API"""
+    """Fetches employee data from JSONPlaceholder API"""
     employee_data = "https://jsonplaceholder.typicode.com/users/"
     employee_request = requests.get(employee_data + str(employee_id))
     return employee_request.json()
 
 
 def get_todo(employee_id):
-    """Fetches TODO list data for an employee from the API"""
+    """Fetches TODO list data for an employee from JSONPlaceholder API"""
     todo_url = "https://jsonplaceholder.typicode.com/todos?userId="
     todo_request = requests.get(todo_url + str(employee_id))
     return todo_request.json()
